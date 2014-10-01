@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filters> 
+	<filter>
+		<!-- source is agents|agentGroups|monitors|collectors|hosts -->
+		<sources>
+			<monitor>
+				<name>my.*</name>
+				<host>bos125685n03</host>
+			</monitor>
+		</sources>
+		<emails>
+			<!-- tos, cc, and bcc is a list-of-semicolon-separated-email-addresses -->
+			<tos>eugene.turetsky@compuware.com</tos>
+		</emails>
+	</filter>
+	<filter>
+		<!-- source is agents|agentGroups|monitors|collectors|hosts -->
+		<sources>
+			<monitor>
+				<name>M.*</name>
+				<host>bos125685n03</host>
+			</monitor>
+		</sources>
+		<emails>
+			<!-- tos, cc, and bcc is a list-of-semicolon-separated-email-addresses -->
+			<tos>eugene.turetsky@yahoo.com</tos>
+		</emails>
+	</filter>
+</filters>
