@@ -592,7 +592,7 @@ Next is an example of custom text:
 
 "I do not like incidents, especially when they are coming from the agent ${AGENT_NAME} which is running on the host ${AGENT_HOST}"
 
-For more examples see section 4 on page 9 of the **[Extended Mail Action Plugin](attachments_132120588_7_Extended_Mail_Action_Plugin_Release_0.9.6.docx)** document.
+For more examples see section 4 on page 9 of the **[Extended Mail Action Plugin](Extended_Mail_Action_Plugin_Release_0.9.6.docx)** document.
 
 ##
 
