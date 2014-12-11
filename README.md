@@ -25,6 +25,25 @@ just send the email when the Incident comes from a specific agent or server
 | | 2014-09-16 Release 0.9.9.8 - 0.9.9.9 (beta)
 | Download |[com.dynatrace.diagnostics.plugins.extendedmailreport_0.9.9.10.jar](com.dynatrace.diagnostics.plugins.extendedmailreport_0.9.9.10.jar)
 
+## Java utility which verifies correctness of the Email-Filters Dependency File
+
+Standalone Java utility mimic the Extended Mail Action plugin code which processes the Email-Filters Dependency XML files. It checks correctness of the  Email-Filters Dependency XML file based on provided XSD schema and plugin's built-in internal rules. Below are few examples of utility usage:
+
+* getting help about utility usage:
+![images_community/download/attachments/120128619/CheckConfigXml_utility_usage.png](images_community/download/attachments/120128619/CheckConfigXml_utility_usage.png)
+
+* example of executing utility:
+![images_community/download/attachments/120128619/CheckConfigXml_utility_example.png](images_community/download/attachments/120128619/CheckConfigXml_utility_example.png)
+
+## New in the Release 0.9.9.14
+
+Fixed a filtering issue for agent groups and servers. 
+
+## New in the Release 0.9.9.13
+
+GA release.
+
+
 ## New in the Release 0.9.9.8 - 0.9.9.10
 
 New features include:
