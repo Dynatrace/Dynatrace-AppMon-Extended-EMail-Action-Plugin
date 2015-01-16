@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- plugin.xml file written by dynaTrace Client 5.5.0 -->
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugins.extendedmailreport" name="ExtendedMailActionPlugin">
+    <information>
+      <category value="" />
+      <displayname value="Extended Mail Action Plugin" />
+      <description value="Sends customized notification e-mails" />
+      <supportlevel value="unsupported" />
+    </information>
+    <configuration>
+      <property key="incidentRuleName" label="Incident Rule Name" type="string" description="Incident rule which this action is added to" default="" multiline="false" />
+      <property key="identityString" label="Identity String" type="string" description="String which uniquely identifies this action plugin instance" default="" multiline="false" />
+      <property key="DTHost" label="dynaTrace Server" type="string" description="DT server" default="localhost" multiline="false" />
+      <property key="DTPort" label="dynaTrace Server REST Port" type="long" description="HTTP port of your dT server (will be used as target for REST call)" default="8020" />
+      <property key="DTUser" label="dynaTrace Server User" type="string" description="user id  to connect to your dT server (will be used in REST call)" default="admin" multiline="false" />
+      <property key="DTPassword" label="dynaTrace User Password" type="password" description="user password  to connect to your dT server (will be used in REST call)" default="foo" />
+      <property key="SMTPHost" label="SMTP Host" type="string" description="SMTP host" default="smtp.company-name.com" multiline="false" />
+      <property key="SMTPPort" label="SMTP Port" type="long" description="SMTP host port to use for routing e-mails" default="25" />
+      <property key="SMTPSSL" label="SMTP Secure Connection (SSL)" type="boolean" description="SMTP Secure Connection (SSL)" default="false" />
+      <property key="SmtpUserPassword" label="SmtpUserPassword" type="boolean" description="when true user/password is used to connect to SMTP mail server" default="false" />
+      <property key="SMTPUser" label="SMTP User" type="string" description="SMTP User" default="" multiline="false">
+        <visibility>
+          <rule key="SmtpUserPassword" value="true" />
+        </visibility>
+      </property>
+      <property key="SMTPPassword" label="SMTP User Password" type="password" description="SMTP User Password" default="">
+        <visibility>
+          <rule key="SmtpUserPassword" value="true" />
+        </visibility>
+      </property>
+      <property key="QuietTimeFrom" label="Quiet Time From" type="string" description="'From' time in the 'HH:mm' format when notification e-mails will be suspended. HH is number of hours from 0-24, mm is number of minutes from 0-59." default="" multiline="false" />
+      <property key="QuietTimeTo" label="Quiet Time To" type="string" description="'To' time in the 'HH:mm' format when notification e-mails will be suspended. HH is number of hours from 0-24, mm is number of minutes from 0-59." default="" multiline="false" />
+      <property key="HostNameToIpAddress" label="Host Name to IP Address Translation" type="string" description="Translate host name to ip address" default="" multiline="true" />
+      <property key="From" label="From" type="string" description="e-mail address of sender" default="name@company-name.com" multiline="false" />
+      <property key="emailsFiltersCoupled" label="Are Emails and Filters Coupled?" type="boolean" description="Boolean indicator which shows if e-Mail addresses and filters are coupled, i.e. for each filter condition we have set of e-mails to send to when this condition is true." default="false" />
+      <property key="emailsFiltersDependencyFile" label="Emails-Filters Dependency File" type="string" description="XML file which contains Email-Filters paiers coupled together" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="true" />
+        </visibility>
+      </property>
+      <property key="To" label="To" type="string" description="e-mail address of  recipient" default="group[Incident Email Group]" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="CC" label="CC" type="string" description="e-mail address of  CC-list" default="group[Incident Email Group]" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="BCC" label="BCC" type="string" description="e-mail address of  BCC-list)" default="group[Incident Email Group]" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="Agents" label="Agents" type="string" description="List of semicolon separated agents or list of regex which resolves to agents" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="agentServers" label="Agent Servers" type="string" description="Semicilon separated list of servers or regex which resolves to servers that agents are running on" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="AgentGroups" label="AgentGroups" type="string" description="List of agent groups which incidents will generate e-mail notifications" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="Monitors" label="Monitors" type="string" description="List of semicolon separated monitors or list of regex which resolves to monitors" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="monitorServers" label="Monitor Servers" type="string" description="Semicilon separated list of servers or regex which resolves to servers that monitors are running on" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="Collectors" label="Collectors" type="string" description="List of semicolon separated collectors or list of regex which resolves to collectors" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="collectorServers" label="Collector Servers" type="string" description="Semicilon separated list of servers or regex which resolves to servers that collectors are running on" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="Servers" label="Servers" type="string" description="List of semicolon separated servers or list of regex which resolves to servers" default="" multiline="false">
+        <visibility>
+          <rule key="emailsFiltersCoupled" value="false" />
+        </visibility>
+      </property>
+      <property key="sendOnlyPatterns" label="sendOnlyPatterns" type="string" description="A semicolon separated list of Java regular expressions (see http://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html), which incident will be evaluated for. Notification e-mail will not be sent if match is not found for any Java regular expression in the following variables:&#xD;&#xA; - MESSAGE;&#xD;&#xA; - RULE_DESCRIPTION;&#xD;&#xA; - VIOLATION_HEADER_1;&#xD;&#xA; - VIOLATION_MESSAGE_1;&#xD;&#xA; - VIOLATION_HEADER_2;&#xD;&#xA; - VIOLATION_MESSAGE_2;&#xD;&#xA; - VIOLATION_HEADER_3;&#xD;&#xA; - VIOLATION_MESSAGE_3;&#xD;&#xA; - VIOLATION_HEADER_4;&#xD;&#xA; - VIOLATION_MESSAGE_4;&#xD;&#xA; - VIOLATION_HEADER_5;&#xD;&#xA; - VIOLATION_MESSAGE_5." default="" multiline="false" />
+      <property key="measureNamePatterns" label="measureNamePatterns" type="string" description="Allows to filter e-mail notifications by the violated measure names" default="" multiline="false" />
+      <property key="HTMLFormat" label="HTML Mail Format" type="boolean" description="Describes format of the e-mail. If it is &quot;true&quot; then format of the e-mail is HTML, otherwise it is plain ASCII text." default="true" />
+      <property key="SubjectPrefix" label="Subject Prefix" type="string" description="e-mail subject prefix(can be left empty)" default="" multiline="false" />
+      <property key="Subject" label="Subject" type="string" description="e-mail subject (can be left empty)" default="" multiline="false" />
+      <property key="SubjectSuffix" label="Subject Suffix" type="string" description="e-mail subject suffix (can be left empty)" default="" multiline="false" />
+      <property key="BodyHeader" label="Body Header" type="string" description="e-mail's body header (optional)" default="" multiline="true" />
+      <property key="Body" label="Body" type="string" description="e-mail's body (optional)" default="" multiline="true" />
+      <property key="BodyFooter" label="Body Footer" type="string" description="e-mail's body suffix (optional)" default="" multiline="true" />
+      <property key="DashboardNames" label="Dashboard Names" type="string" description="list of dashboard names to generate report from." default="" multiline="false" />
+      <property key="DashboardsType" label="Dashboards Type" type="list" description="Type of dashboards' reports, i.e. PDF, HTML, XML, CSV, etc." default="PDF">
+        <list>
+          <item value="HTML" />
+          <item value="PDF" />
+          <item value="CSV" />
+          <item value="XML" />
+          <item value="XSD" />
+          <item value="XLS" />
+        </list>
+      </property>
+      <property key="RESTFilteringAgentNameHost" label="Reports filtering by Agent Name/Host" type="boolean" description="REST filter by Agent Name/Host" default="false" />
+      <property key="RESTFilteringAgentGroup" label="Reports filtering by Agent Group" type="boolean" description="REST filter by Agent Group" default="false" />
+      <property key="RESTFilteringCustomTimeframe" label="Reports filtering by Custom Timeframe" type="boolean" description="REST filter by Custom Timeframe" default="false" />
+      <property key="thresholdsFile" label="ThresholdsFile" type="string" description="The thresholds XML file for setting up individual thresholds for dynamic measures" default="" multiline="false" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.action" id="com.dynatrace.diagnostics.plugins.extendedmailreport.action" name="Extended Mail Action Plugin">
+    <plugin configid="com.dynatrace.diagnostics.plugins.extendedmailreport" class="com.dynatrace.diagnostics.plugins.extendedmailreport.ExtendedMailAction" />
+  </extension>
+</plugin>
+

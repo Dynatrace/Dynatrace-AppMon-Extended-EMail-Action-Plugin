@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Require-Bundle: com.dynatrace.diagnostics.sdk
+Bundle-Vendor: Compuware Corp.
+Bundle-ClassPath: .,lib/actionhelper_0.9.9.18.jar,lib/activation.jar,l
+ ib/commons-codec-1.8.jar,lib/commons-io-2.4.jar,lib/commons-lang3-3.1
+ .jar,lib/jsoup-1.7.2.jar,lib/jxl.jar,lib/mail-1.4.7.jar
+Bundle-Version: 0.9.9.18
+Bundle-Name: ExtendedMailActionPlugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.dynatrace.diagnostics.plugins.extendedmailrep
+ ort;singleton:=true
+
